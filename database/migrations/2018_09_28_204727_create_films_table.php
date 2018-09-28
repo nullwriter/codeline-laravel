@@ -21,6 +21,7 @@ class CreateFilmsTable extends Migration
 			$table->unsignedInteger('rating')->default(1);
 			$table->string('country');
 			$table->string('photo');
+			$table->double('ticket_price');
             $table->timestamps();
         });
     }

@@ -18,9 +18,8 @@ class CreateFilmsTable extends Migration
 			$table->string('name')->unique();
 			$table->string('description');
 			$table->date('release_date');
-			$table->decimal('rating', 5)->default(1);
+			$table->unsignedInteger('rating')->default(1);
 			$table->string('country');
-			$table->integer('genre_id');
 			$table->string('photo');
             $table->timestamps();
         });

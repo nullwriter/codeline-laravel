@@ -3,6 +3,7 @@
 use App\Film;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class FilmsTableSeeder extends Seeder
 {
@@ -14,45 +15,18 @@ class FilmsTableSeeder extends Seeder
     public function run()
     {
 		DB::table('films')->truncate();
+		$faker = Faker::create();
 
-		Film::create([
-			'name' => 'Insidious: The Last Key',
-			'description' => 'Lorem Ipsum',
-			'release_date' => '2018-10-01 00:00:01',
-			'rating' => rand(1, 5),
-			'country' => 'United States of America',
-			'photo' => '',
-			'ticket_price' => 4.50,
-		]);
-
-		Film::create([
-			'name' => 'The Strange Ones',
-			'description' => 'Lorem Ipsum',
-			'release_date' => '2017-05-12 00:00:01',
-			'rating' => rand(1, 5),
-			'country' => 'United States of America',
-			'photo' => '',
-			'ticket_price' => 6.50,
-		]);
-
-		Film::create([
-			'name' => 'Sweet Country',
-			'description' => 'Lorem Ipsum',
-			'release_date' => '2017-09-12 00:00:01',
-			'rating' => rand(1, 5),
-			'country' => 'United States of America',
-			'photo' => '',
-			'ticket_price' => 3.50,
-		]);
-
-		Film::create([
-			'name' => 'Acts of Violence',
-			'description' => 'Lorem Ipsum',
-			'release_date' => '2013-02-04 00:00:01',
-			'rating' => rand(1, 5),
-			'country' => 'United States of America',
-			'photo' => '',
-			'ticket_price' => 3.00,
-		]);
+		for($i = 0; $i < 20; $i++) {
+			Film::create([
+				'name' => $faker->company,
+				'description' => $faker->text(100),
+				'release_date' => $faker->date('Y-m-d'),
+				'rating' => rand(1, 5),
+				'country' => $faker->country,
+				'photo' => $faker->imageUrl(300,450),
+				'ticket_price' => rand(2,10),
+			]);
+		}
     }
 }

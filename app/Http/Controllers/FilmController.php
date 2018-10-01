@@ -10,7 +10,7 @@ class FilmController extends Controller
 {
     public function index()
     {
-        return FilmResource::collection(Film::with('genres')->limit(1));
+        return FilmResource::collection(Film::with('genres'));
     }
 
     public function store(Request $request)
@@ -25,12 +25,12 @@ class FilmController extends Controller
 			'ticket_price' => $request->ticket_price
 		]);
 
-        return new FilmResource($film);
+        return response()->json(new FilmResource($film), 201);
     }
 
     public function show(Film $film)
     {
-        return new FilmResource($film);
+        return response()->json(new FilmResource($film), 201);
     }
 
     public function update(Request $request, Film $film)

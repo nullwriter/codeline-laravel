@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Film;
+use App\FilmGenre;
 use App\Genre;
 use App\Http\Resources\FilmResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FilmController extends Controller
 {
@@ -16,6 +18,8 @@ class FilmController extends Controller
 
     public function store(Request $request)
     {
+		Log::debug('Request = '.print_r($request->genre,true));
+
         $film = Film::create([
         	'name' => $request->name,
 			'description' => $request->description,
@@ -25,6 +29,13 @@ class FilmController extends Controller
 			'photo' => $request->photo,
 			'ticket_price' => $request->ticket_price
 		]);
+
+        foreach($request->genre as $g) {
+        	FilmGenre::create([
+        		'film_id' => $film->id,
+				'genre_id' => $g
+			]);
+		}
 
         return redirect()->route('film.view', ['film' => $film->slug]);
     }

@@ -17,7 +17,7 @@
                 <label for="genre">Genre:</label>
                 <select class="form-control" multiple name="genre[]">
                     @foreach($genres as $key => $value)
-                        <option>{{$value['name']}}</option>
+                        <option value="{{$value['id']}}">{{$value['name']}}</option>
                     @endforeach
                 </select>
             </div>

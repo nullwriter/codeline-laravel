@@ -1,9 +1,9 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Create Film')
 
 @section('content')
-    <div class="container pt-5 pb-5">
+    <div class="container pb-5">
         <div class="mb-5 text-center">
             <h3>Create a Film</h3>
         </div>

@@ -1,9 +1,9 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title', 'Films')
 
 @section('content')
-    <div class="container pt-5 pb-5">
+    <div class="container pb-5">
         <div class="row mb-5">
             <div class="ml-auto mr-auto d-flex justify-content-center">
                 <a id="prev" href class="mr-2 next-prev-link"><< Prev</a>

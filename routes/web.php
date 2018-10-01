@@ -22,3 +22,8 @@ Route::get('/film/{film}', function(){
 })->name('film.view');
 
 Route::get('/films/create', 'FilmController@create')->name('film.create');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

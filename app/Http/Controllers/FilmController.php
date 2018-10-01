@@ -46,7 +46,7 @@ class FilmController extends Controller
     public function create(Request $request)
     {
         $genres = Genre::all();
-        return view('film_create')->with('genres', $genres);
+        return view('create_film')->with('genres', $genres);
     }
 
     public function destroy(Film $film)

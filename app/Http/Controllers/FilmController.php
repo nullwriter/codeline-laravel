@@ -18,8 +18,6 @@ class FilmController extends Controller
 
     public function store(Request $request)
     {
-		Log::debug('Request = '.print_r($request->genre,true));
-
         $film = Film::create([
         	'name' => $request->name,
 			'description' => $request->description,

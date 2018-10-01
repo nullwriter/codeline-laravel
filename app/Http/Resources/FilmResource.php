@@ -20,6 +20,7 @@ class FilmResource extends JsonResource
 			'slug' => $this->slug,
 			'description' => $this->description,
 			'release_date' => $this->release_date,
+			'ticket_price' => $this->ticket_price,
 			'rating' => $this->rating,
 			'country' => $this->country,
 			'photo' => $this->photo,

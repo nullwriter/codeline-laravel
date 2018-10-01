@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('film', 'FilmController');
-Route::get('film/{film}', 'FilmController@show');
-Route::post('film', 'FilmController@store');
+Route::get('film/{film}', 'FilmController@show')->name('api.film.view');
+Route::post('film', 'FilmController@store')->name('api.film.save');

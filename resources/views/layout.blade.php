@@ -8,7 +8,7 @@
 <body>
 
 <div class="container">
-    <div id="main" class="row">
+    <div id="main">
         @yield('content')
     </div>
     @include('includes.footer_scripts')

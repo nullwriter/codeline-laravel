@@ -19,4 +19,4 @@ Route::get('/films', function () {
 
 Route::get('/film/{film}', function(){
 	return view('film');
-});
+})->name('film.view');

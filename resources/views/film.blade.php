@@ -10,3 +10,23 @@
         </div>
     </div>
 @stop
+
+@section('extra_scripts')
+    <script type="text/javascript">
+        var films = null;
+        var data = null;
+
+        jQuery(window).on('load', function(){
+
+            jQuery.ajax({url: '{{ route('film.index') }}', success: function(result){
+                films = result.data;
+                data = result;
+
+
+                jQuery('#film-title').text(films[0].name);
+                jQuery('#film-img').attr('src', films[0].photo);
+            }});
+
+        });
+    </script>
+@stop

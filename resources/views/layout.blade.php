@@ -11,9 +11,9 @@
     <div id="main" class="row">
         @yield('content')
     </div>
-    @yield('includes.footer_scripts')
+    @include('includes.footer_scripts')
+    @yield('extra_scripts')
 </div>
 
 </body>
-
 </html>

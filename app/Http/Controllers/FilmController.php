@@ -10,7 +10,7 @@ class FilmController extends Controller
 {
     public function index()
     {
-        return FilmResource::collection(Film::with('genres'));
+        return response()->json(Film::with('genres')->paginate(1), 201);
     }
 
     public function store(Request $request)

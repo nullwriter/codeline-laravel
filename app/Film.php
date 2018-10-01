@@ -8,7 +8,7 @@ class Film extends Model
 {
     public function genres()
 	{
-		return $this->belongsToMany(Genre::class)->using(FilmGenre::class);
+		return $this->belongsToMany('App\Genre', 'film_genre', 'film_id', 'genre_id');
 	}
 
 	public static function boot()

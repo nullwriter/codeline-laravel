@@ -22,7 +22,8 @@ class FilmResource extends JsonResource
 			'release_date' => $this->release_date,
 			'rating' => $this->rating,
 			'country' => $this->country,
-			'photo' => $this->photo
+			'photo' => $this->photo,
+			'genres' => GenreResource::collection($this->whenLoaded('genres'))
 		];
     }
 }

@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::redirect('/', '/films', 301);
+
+Route::get('/films', function () {
+	return view('films');
+});
+
+Route::get('/film/{film}', function(){
+	return view('film');
 });

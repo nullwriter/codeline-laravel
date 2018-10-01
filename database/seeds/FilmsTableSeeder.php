@@ -24,7 +24,7 @@ class FilmsTableSeeder extends Seeder
 				'release_date' => $faker->date('Y-m-d'),
 				'rating' => rand(1, 5),
 				'country' => $faker->country,
-				'photo' => $faker->imageUrl(300,450),
+				'photo' => $faker->imageUrl(400,550),
 				'ticket_price' => rand(2,10),
 			]);
 		}

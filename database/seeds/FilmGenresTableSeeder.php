@@ -13,7 +13,7 @@ class FilmGenresTableSeeder extends Seeder
      */
     public function run()
     {
-    	DB::table('film_genres')->truncate();
+    	DB::table('film_genre')->truncate();
 
     	for($i = 1; $i <= 20; $i++) {
     		$genre_id = rand(1, 10);

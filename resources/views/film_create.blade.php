@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container pt-5 pb-5">
-        <div class="row mb-5">
+        <div class="mb-5 text-center">
             <h3>Create a Film</h3>
         </div>
         {{ Form::open(['route' => 'api.film.save', 'class' => 'w-50 ml-auto mr-auto'])  }}

@@ -4,19 +4,48 @@
 
 @section('content')
     <div class="container pt-5 pb-5">
-        <form action="">
+        <div class="row mb-5">
+            <h3>Create a Film</h3>
+        </div>
+        {{ Form::open(['route' => 'api.film.save', 'class' => 'w-50 ml-auto mr-auto'])  }}
+            {{ Form::token()  }}
             <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email">
+                <label for="name">Title:</label>
+                <input type="text" class="form-control" name="name" id="name">
             </div>
             <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd">
+                <label for="genre">Genre:</label>
+                <select class="form-control" multiple name="genre[]">
+                    @foreach($genres as $key => $value)
+                        <option>{{$value['name']}}</option>
+                    @endforeach
+                </select>
             </div>
-            <div class="checkbox">
-                <label><input type="checkbox"> Remember me</label>
+            <div class="form-group">
+                <label for="ticket_price">Ticket Price:</label>
+                <input type="text" class="form-control" name="ticket_price" id="ticket_price">
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <div class="form-group">
+                <label for="release_date">Release Date:</label>
+                <input type="text" class="form-control" name="release_date" id="release_date">
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <input type="text" class="form-control" name="rating" id="rating">
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" class="form-control" name="country" id="country">
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo Url:</label>
+                <input type="text" class="form-control" name="photo" id="photo">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea type="text" class="form-control" name="description" id="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 @stop

@@ -1,10 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="mb-2 mt-5 text-center">
-        <a href="{{ route('films') }}">Home</a>
-    </div>
-    <div class="container pt-5 pb-5">
+    <div class="container pt-2 pb-5">
         @include('partials/film_item')
     </div>
 @stop

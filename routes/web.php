@@ -21,6 +21,4 @@ Route::get('/film/{film}', function(){
 	return view('film');
 })->name('film.view');
 
-Route::get('/films/create', function(){
-	return view('film_create');
-})->name('film.view');
+Route::get('/films/create', 'FilmController@create')->name('film.create');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Film;
+use App\Genre;
 use App\Http\Resources\FilmResource;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class FilmController extends Controller
 			'ticket_price' => $request->ticket_price
 		]);
 
-        return response()->json(new FilmResource($film), 201);
+        return redirect()->route('film.view', ['film' => $film->slug]);
     }
 
     public function show(Film $film)
@@ -33,9 +34,10 @@ class FilmController extends Controller
         return response()->json(new FilmResource($film->load('genres')), 201);
     }
 
-    public function update(Request $request, Film $film)
+    public function create(Request $request)
     {
-        // code
+        $genres = Genre::all();
+        return view('film_create')->with('genres', $genres);
     }
 
     public function destroy(Film $film)

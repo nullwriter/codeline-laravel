@@ -6,10 +6,21 @@
         <div id="comment-section" class="w-50 ml-auto mr-auto mt-4">
             <h4>Comments</h4>
             <div class="comment-wrap">
-                <div class="card">
+                @foreach($comments as $key => $value)
+                <div class="card mb-2">
                     <div class="card-body">
+                        <b>{{ $value['user']['name'] }}</b>: <span>{{ $value['comment'] }}</span> <br>
+                        <small class="float-right">{{ date('l F jS, Y h:i A', strtotime($value['created_at'])) }}</small>
                     </div>
                 </div>
+                @endforeach
+                @if(empty($comments))
+                <div class="card">
+                    <div class="card-body">
+                        There are no comments.
+                    </div>
+                </div>
+                @endif
             </div>
             <div class="add-comment-form mt-4">
                 @auth
@@ -19,10 +30,11 @@
                         <label for="comment">Submit a comment:</label>
                         <textarea type="text" class="form-control" name="comment" id="comment"></textarea>
                     </div>
+                    <input type="hidden" name="film_id" value="{{ $film_id }}" />
                     <button type="submit" class="btn btn-primary">Submit</button>
                 {{ Form::close()  }}
                 @else
-                        <span>You need to <a href="{{ route('login') }}">log in</a> to comment.</span>
+                    <span>You need to <a href="{{ route('login') }}">log in</a> to comment.</span>
                 @endauth
             </div>
         </div>

@@ -18,7 +18,7 @@ class CommentsTableSeeder extends Seeder
 
 		for($i = 1; $i <= 20; $i++) {
 			Comment::create([
-				'comment' => $faker->realText(),
+				'comment' => $faker->realText(80),
 				'user_id' => rand(1, 3),
 				'film_id' => $i
 			]);

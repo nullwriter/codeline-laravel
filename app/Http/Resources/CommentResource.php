@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CommentResource extends JsonResource
@@ -15,7 +16,8 @@ class CommentResource extends JsonResource
     public function toArray($request)
     {
         return [
-        	'comment' => $request->comment,
+        	'comment' => $this->comment,
+			'user' => User::find($this->user_id)
 		];
     }
 }

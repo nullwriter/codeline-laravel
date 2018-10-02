@@ -49,9 +49,9 @@ class FilmController extends Controller
         return view('create_film')->with('genres', $genres);
     }
 
-    public function destroy(Film $film)
-    {
-		$film->delete();
-		return response()->json(null, 204);
-    }
+    public function detail(Film $film)
+	{
+		Log::debug($film->comments()->with('user')->get());
+		return view('film', ['comments' => $film->comments()->with('user')->get(), 'film_id' => $film->id]);
+	}
 }

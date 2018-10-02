@@ -13,6 +13,11 @@ class Film extends Model
 		return $this->belongsToMany('App\Genre', 'film_genre', 'film_id', 'genre_id');
 	}
 
+	public function comments()
+	{
+		return $this->hasMany('App\Comment');
+	}
+
 	public static function boot()
 	{
 		parent::boot();

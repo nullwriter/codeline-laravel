@@ -24,7 +24,7 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            @endguest
+        @endguest
     </div>
     <div id="main" class="pt-4">
         @yield('content')

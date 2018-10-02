@@ -3,6 +3,29 @@
 @section('content')
     <div class="container pt-2 pb-5">
         @include('partials/film_item')
+        <div id="comment-section" class="w-50 ml-auto mr-auto mt-4">
+            <h4>Comments</h4>
+            <div class="comment-wrap">
+                <div class="card">
+                    <div class="card-body">
+                    </div>
+                </div>
+            </div>
+            <div class="add-comment-form mt-4">
+                @auth
+                {{ Form::open(['route' => 'comment.submit', 'class' => ''])  }}
+                    {{ Form::token()  }}
+                    <div class="form-group">
+                        <label for="comment">Submit a comment:</label>
+                        <textarea type="text" class="form-control" name="comment" id="comment"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                {{ Form::close()  }}
+                @else
+                        <span>You need to <a href="{{ route('login') }}">log in</a> to comment.</span>
+                @endauth
+            </div>
+        </div>
     </div>
 @stop
 

@@ -40,7 +40,7 @@ class FilmController extends Controller
 
     public function show(Film $film)
     {
-        return response()->json(new FilmResource($film->load('genres')), 201);
+        return response()->json(new FilmResource($film->load(['genres','comments'])), 201);
     }
 
     public function create(Request $request)

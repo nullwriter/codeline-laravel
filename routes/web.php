@@ -22,8 +22,7 @@ Route::get('/film/{film}', function(){
 })->name('film.view');
 
 Route::get('/films/create', 'FilmController@create')->name('film.create');
+Route::post('/comment', 'CommentController@create')->name('comment.submit');
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
